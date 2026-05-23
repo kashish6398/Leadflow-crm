@@ -3,7 +3,6 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
 function Signup() {
-
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -13,27 +12,23 @@ function Signup() {
   });
 
   const handleChange = (e) => {
-
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
-
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      // Register
       await axios.post(
-        "http://localhost:5000/api/auth/register",
+        "https://leadflow-crm-yvk1.onrender.com/api/auth/register",
         formData
       );
 
-      // Auto login
       const res = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        "https://leadflow-crm-yvk1.onrender.com/api/auth/login",
         {
           email: formData.email,
           password: formData.password,
@@ -42,7 +37,6 @@ function Signup() {
 
       localStorage.setItem("token", res.data.token);
       navigate("/dashboard");
-
     } catch (error) {
       console.log(error);
       alert(error.response?.data?.message || "Signup Failed");
@@ -50,14 +44,11 @@ function Signup() {
   };
 
   return (
-
     <div className="min-h-screen flex justify-center items-center bg-zinc-50">
-
       <form
         onSubmit={handleSubmit}
         className="bg-white p-8 rounded-2xl border border-zinc-200/60 shadow-sm w-[380px]"
       >
-
         <h1 className="text-2xl font-bold mb-8 text-center text-zinc-900 tracking-tight">
           Create an account
         </h1>
@@ -94,20 +85,15 @@ function Signup() {
         </button>
 
         <p className="mt-6 text-center text-sm text-zinc-500">
-
           Already have an account?
-
           <Link
             to="/"
             className="text-zinc-900 font-semibold ml-2 hover:underline"
           >
             Sign in
           </Link>
-
         </p>
-
       </form>
-
     </div>
   );
 }

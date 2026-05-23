@@ -13,7 +13,7 @@ function Leads() {
 
   const fetchLeads = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/leads");
+      const res = await axios.get("https://leadflow-crm-yvk1.onrender.com/api/leads");
       setLeads(res.data);
     } catch (error) {
       console.log(error);
@@ -27,9 +27,7 @@ function Leads() {
 
   return (
     <div className="flex h-screen bg-zinc-50 overflow-hidden">
-      {/* MOBILE TOPBAR */}
       <div className="md:hidden fixed top-0 left-0 right-0 bg-white z-40 border-b border-zinc-200 px-5 py-4 flex justify-between items-center">
-        {/* LEFT */}
         <div className="flex items-center gap-3">
           <FaBars
             size={22}
@@ -43,8 +41,6 @@ function Leads() {
             <h1 className="text-xl font-bold text-zinc-900 tracking-tight">CRM</h1>
           </div>
         </div>
-
-        {/* LOGOUT */}
         <button
           onClick={handleLogout}
           className="border border-zinc-200 hover:bg-zinc-50 transition-all text-zinc-700 px-4 py-2 rounded-xl text-sm font-medium shadow-sm"
@@ -59,7 +55,6 @@ function Leads() {
         handleLogout={handleLogout}
       />
 
-      {/* MAIN CONTENT */}
       <div className="flex-1 p-4 md:p-8 mt-[80px] md:mt-0 overflow-y-auto overflow-x-hidden">
         <h1 className="text-3xl font-bold mb-8 text-zinc-900 tracking-tight">All Leads</h1>
 
