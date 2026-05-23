@@ -11,7 +11,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://leadflow-crm-livid.vercel.app/",
+    origin: "https://leadflow-crm-livid.vercel.app",
     credentials: true,
   })
 );
