@@ -41,5 +41,5 @@ https://leadflow-crm-yvk1.onrender.com
 
 ## Author
 
-Shubhi Gupta
+Kashish Gupta
 MERN Stack Developer
